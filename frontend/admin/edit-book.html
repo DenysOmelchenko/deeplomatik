@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редагування Книги - Адмін Панель</title>
+    <link rel="stylesheet" href="../css/style.css"> <style>
+    #editBookFormContainer { padding: 20px; border: 1px solid #ddd; background-color: #f9f9f9; border-radius: 5px; }
+    #editBookFormContainer div { margin-bottom: 10px; }
+    #editBookFormContainer label { display: inline-block; width: 180px; vertical-align: top; }
+    #editBookFormContainer input[type="text"],
+    #editBookFormContainer input[type="number"],
+    #editBookFormContainer textarea { width: calc(100% - 200px); max-width: 400px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    #editBookFormContainer textarea { height: 80px; resize: vertical; }
+    .message-area { margin-bottom:15px; padding: 10px; border-radius: 4px; }
+    .success-message { background-color: #e6ffed; border: 1px solid #b7ebc5; color: #257942; }
+    .error-message { background-color: #ffe6e6; border: 1px solid #ffb3b3; color: #c00; }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="container"> <h1>Бібліотека Навчального Закладу</h1> <nav id="mainNav">
+    </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container"> <h2>Адмін-панель: Редагування Книги</h2> <div id="editBookMessage" class="message-area" style="display:none;"></div>
+
+        <section id="editBookFormContainer">
+            <h3 style="margin-top:0; margin-bottom: 20px;">Редагувати Книгу</h3> <form id="editBookForm">
+            <input type="hidden" id="bookId" name="bookId">
+
+            <div>
+                <label for="bookTitle">Назва:</label>
+                <input type="text" id="bookTitle" name="title" required>
+            </div>
+            <div>
+                <label for="bookAuthor">Автор:</label>
+                <input type="text" id="bookAuthor" name="author" required>
+            </div>
+            <div>
+                <label for="bookGenre">Жанр:</label>
+                <input type="text" id="bookGenre" name="genre" required>
+            </div>
+            <div>
+                <label for="bookDescription">Опис:</label>
+                <textarea id="bookDescription" name="description"></textarea>
+            </div>
+            <div>
+                <label for="bookISBN">ISBN:</label>
+                <input type="text" id="bookISBN" name="isbn">
+            </div>
+            <div>
+                <label for="bookPublishedYear">Рік видання:</label>
+                <input type="number" id="bookPublishedYear" name="publishedYear" placeholder="YYYY">
+            </div>
+            <div>
+                <label for="bookPublisher">Видавництво:</label>
+                <input type="text" id="bookPublisher" name="publisher">
+            </div>
+            <div>
+                <label for="bookMaterialType">Тип матеріалу:</label>
+                <input type="text" id="bookMaterialType" name="materialType" placeholder="Підручник, Журнал...">
+            </div>
+            <div>
+                <label for="bookTotalCopies">Загальна к-сть екз.:</label>
+                <input type="number" id="bookTotalCopies" name="totalCopies" required min="0">
+            </div>
+            <button type="submit" id="saveBookButton">Зберегти зміни</button>
+            <a href="manage-books.html" style="margin-left: 10px; display: inline-block; padding: 10px 15px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 4px; vertical-align: middle;">Скасувати</a>
+        </form>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container"> <p>&copy; 2025 Моя Бібліотека Навчального Закладу</p>
+    </div>
+</footer>
+
+<script src="../js/auth.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/edit-book.js"></script> </body>
+</html>

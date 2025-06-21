@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Глобальне скидання та box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%; /* Або можна спробувати min-height: 100vh; */
+    font-family: 'Roboto', sans-serif; /* Застосовуємо Roboto */
+    line-height: 1.6;
+    color: #333; /* Основний колір тексту */
+    background-color: #f4f4f4; /* Світло-сірий фон для всієї сторінки */
+
+    /* Додано для "прилипаючого" футера */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Базова типографіка */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75em;
+    line-height: 1.2;
+    color: #222; /* Темніший колір для заголовків */
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.75em; }
+h4 { font-size: 1.5em; }
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: #007bff; /* Синій колір для посилань */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+header h1 { /* Назва сайту в хедері */
+    color: #fff;
+    margin: 0;
+    font-size: 1.8em;
+}
+
+/* Головна навігація */
+#mainNav {
+    display: flex;
+    align-items: center;
+}
+
+#mainNav a,
+#mainNav span {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 0.8em;
+    margin: 0 0.25em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#mainNav a:hover {
+    background-color: #555;
+    text-decoration: none;
+    color: #fff;
+}
+
+#mainNav span {
+    cursor: default;
+}
+
+#mainNav button#logoutButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9em;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#mainNav button#logoutButton:hover {
+    background-color: #0056b3;
+}
+
+main {
+    padding-bottom: 20px;
+    flex-grow: 1;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    background: #333;
+    color: #fff;
+}
+
+footer .container {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* === Оновлена Секція: Стилізація Таблиць === */
+/* === Стилізація Таблиць === */
+table {
+    width: 100%; /* Таблиця на всю ширину батьківського контейнера */
+    border-collapse: collapse; /* Прибирає подвійні рамки між комірками */
+    margin-top: 20px; /* Відступ зверху від таблиці */
+    margin-bottom: 20px; /* Відступ знизу від таблиці */
+    font-size: 0.95em; /* Базовий розмір шрифту для таблиць, можете налаштувати */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Легка тінь для таблиці */
+    background-color: #fff; /* Білий фон для самої таблиці (якщо вона всередині сірого .container) */
+}
+
+th, td {
+    border: 1px solid #ddd;  /* Рамки для комірок (як у ваших вбудованих стилях) */
+    padding: 10px;          /* Внутрішні відступи в комірках (як у manage-books.html) */
+    text-align: left;       /* Вирівнювання тексту */
+    vertical-align: middle; /* Вертикальне вирівнювання вмісту комірки по центру */
+}
+
+th { /* Заголовки таблиці */
+    background-color: #f0f0f0; /* Фон для рядка заголовків (як у ваших вбудованих стилях) */
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap; /* Забороняємо перенос слів у заголовках, якщо вони короткі/важливі */
+}
+
+/* Чергування кольору рядків для кращої читабельності (зебра) */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Дуже світлий фон для парних рядків */
+}
+
+/* Ефект при наведенні на рядок таблиці (опціонально) */
+tbody tr:hover {
+    background-color: #f1f1f1; /* Світло-сірий фон при наведенні */
+}
+
+/* Уніфікований стиль для кнопок дій всередині таблиць */
+/* Потрібно буде додати клас "table-actions" до <td> з кнопками в JS */
+.table-actions button {
+    padding: 5px 10px;
+    font-size: 0.9em;
+    margin-right: 5px;
+    margin-bottom: 5px; /* Для кращого вигляду, якщо кнопки переносяться */
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.table-actions button:hover {
+    background-color: #e9e9e9;
+    border-color: #bbb;
+}
+
+/* Стилізація для видалених рядків (якщо використовуєте клас .deleted-row) */
+.deleted-row td {
+    background-color: #ffeeee !important; /* !important, щоб перебити стиль :nth-child(even) */
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* === Стилізація Форм === */
+
+/* Обгортка для групи "мітка + поле вводу" - зазвичай це <div> всередині <form> */
+form div {
+    margin-bottom: 15px; /* Відступ між групами полів */
+}
+
+label {
+    display: block; /* Мітка займає всю ширину, поле вводу переноситься на новий рядок */
+    margin-bottom: 5px; /* Невеликий відступ від мітки до поля вводу */
+    font-weight: bold;
+    color: #555; /* Темно-сірий колір для міток */
+}
+
+/* Загальні стилі для більшості полів вводу */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+    width: 100%; /* Поля займають всю доступну ширину свого контейнера */
+    padding: 10px 12px; /* Внутрішні відступи в полях */
+    border: 1px solid #ccc; /* Рамка */
+    border-radius: 4px; /* Заокруглення кутів */
+    font-family: inherit; /* Успадковують шрифт 'Roboto' */
+    font-size: 1em; /* Розмір шрифту як у основного тексту */
+    line-height: 1.4;
+    background-color: #fff; /* Білий фон поля */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Плавні переходи для фокусу */
+}
+
+/* Стилі при фокусі на полях вводу */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff; /* Колір рамки при фокусі (синій) */
+    outline: none; /* Прибираємо стандартний контур фокусу браузера */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Додаємо власну тінь фокусу */
+}
+
+textarea {
+    min-height: 100px; /* Мінімальна висота для багаторядкового тексту */
+    resize: vertical; /* Дозволяємо змінювати розмір тільки по вертикалі */
+}
+
+select {
+    /* Для select може знадобитися додаткова стилізація, щоб він виглядав однаково в різних браузерах,
+       але ці базові стилі вже покращать його вигляд. */
+    appearance: none; /* Прибирає стандартний вигляд стрілки в деяких браузерах, може знадобитися своя стрілка */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5z%22%20fill%3D%22%23555%22/%3E%3C/svg%3E'); /* Проста SVG стрілка */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px; /* Щоб текст не заходив під стрілку */
+}
+
+/* Загальні стилі для кнопок (розширюємо/уніфікуємо) */
+button,
+input[type="submit"],
+input[type="button"] {
+    display: inline-block;
+    padding: 10px 20px; /* Стандартний розмір кнопки */
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    line-height: normal; /* Для нормального відображення тексту в кнопці */
+}
+
+/* Головна кнопка дії (наприклад, "Увійти", "Зберегти зміни", "Додати книгу") */
+button[type="submit"],
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+button[type="submit"]:hover,
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0050a0;
+}
+
+/* Другорядна кнопка (наприклад, "Скасувати", "Скинути фільтри") */
+button[type="button"], /* Застосується до багатьох ваших кнопок "Скасувати" або "Оновити список" */
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border-color: #6c757d;
+}
+button[type="button"]:hover,
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Стилі для неактивних кнопок */
+button:disabled,
+input:disabled {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+    color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+/* Стилі для секцій з формами (якщо ви вирішите їх узагальнити) */
+.form-section-container { /* Наприклад, для #bookFormContainer, #userEditFormContainer */
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9; /* Світлий фон для виділення форми */
+    border-radius: 5px;
+}

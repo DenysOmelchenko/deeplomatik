@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запити на книги - Адмін Панель</title>
+    <link rel="stylesheet" href="../css/style.css"> </head>
+<body>
+
+<header>
+    <div class="container"> <h1>Бібліотека Навчального Закладу</h1> <nav id="mainNav">
+    </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container"> <h2>Адмін-панель: Запити на книги</h2> <h3 style="margin-top: 20px;">Запити, що очікують на схвалення (PENDING)</h3> <button id="refreshRequestsButton" type="button" style="margin-bottom: 15px;">Оновити список запитів</button>
+        <div id="pendingRequestsContainer">
+            <p>Завантаження запитів...</p>
+        </div>
+        <div id="actionMessage" style="margin-top: 15px; font-weight: bold;">
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container"> <p>&copy; 2025 Моя Бібліотека Навчального Закладу</p>
+    </div>
+</footer>
+
+<script src="../js/auth.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управління Користувачами - Адмін Панель</title>
+    <link rel="stylesheet" href="../css/style.css"> <style>
+    #userEditFormContainer { margin-bottom: 30px; padding: 20px; border: 1px solid #ddd; background-color: #f9f9f9; border-radius: 5px; display: none; }
+    #userEditFormContainer div { margin-bottom: 10px; display: flex; align-items: center; }
+    #userEditFormContainer label { display: inline-block; width: 150px; margin-right: 10px; font-weight: bold; }
+    #userEditFormContainer input[type="text"],
+    #userEditFormContainer input[type="email"],
+    #userEditFormContainer select { flex-grow: 1; max-width: 350px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    #userEditFormContainer button { padding: 10px 15px; margin-top: 10px; cursor: pointer; border: none; border-radius: 4px; }
+    #adminSaveUserButton { background-color: #28a745; color: white; }
+    #adminCancelUserEditButton { background-color: #6c757d; color: white; margin-left: 10px;}
+
+
+    .message-area { margin-bottom:15px; padding: 10px; border-radius: 4px; display:none; }
+    .success-message { background-color: #e6ffed; border: 1px solid #b7ebc5; color: #257942; }
+    .error-message { background-color: #ffe6e6; border: 1px solid #ffb3b3; color: #c00; }
+
+    #adminUserPagination button, #adminRefreshUsersButton { padding: 8px 15px; margin: 5px; cursor: pointer; }
+    #userListControls { margin-bottom: 10px; }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="container"> <h1>Бібліотека Навчального Закладу</h1> <nav id="mainNav">
+    </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container"> <h2>Адмін-панель: Управління Користувачами</h2> <div id="userActionMessage" class="message-area"></div>
+
+        <section id="userEditFormContainer">
+            <h3 id="userFormTitle">Редагувати Користувача</h3> <form id="adminUserEditForm">
+            <input type="hidden" id="adminEditUserId">
+            <div>
+                <label for="adminEditUsername">Ім'я користувача:</label>
+                <input type="text" id="adminEditUsername" name="username" required>
+            </div>
+            <div>
+                <label for="adminEditEmail">Email:</label>
+                <input type="email" id="adminEditEmail" name="email" required>
+            </div>
+            <div>
+                <label for="adminEditRole">Роль:</label>
+                <select id="adminEditRole" name="role">
+                    <option value="STUDENT">STUDENT</option>
+                    <option value="TEACHER">TEACHER</option>
+                    <option value="LIBRARIAN">LIBRARIAN</option>
+                </select>
+            </div>
+            <button type="submit" id="adminSaveUserButton">Зберегти зміни</button>
+            <button type="button" id="adminCancelUserEditButton">Скасувати</button>
+        </form>
+        </section>
+
+        <hr style="margin: 30px 0;"> <section id="userListSection">
+            <h3>Список Користувачів</h3> <div id="userListControls">
+            <label for="adminShowDeletedUsers">Показати видалених:</label>
+            <input type="checkbox" id="adminShowDeletedUsers">
+            <button id="adminRefreshUsersButton" type="button" style="margin-left: 10px;">Оновити список</button>
+        </div>
+            <div id="adminUserListContainer" style="margin-top:15px;">
+                <p>Завантаження користувачів...</p>
+            </div>
+            <div id="adminUserPagination" style="text-align: center; margin-top: 20px;">
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container"> <p>&copy; 2025 Моя Бібліотека Навчального Закладу</p>
+    </div>
+</footer>
+
+<script src="../js/auth.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

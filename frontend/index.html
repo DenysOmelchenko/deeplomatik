@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Головна - Бібліотека Навчального Закладу</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <div class="container">  <h1>Бібліотека Навчального Закладу</h1>
+    <nav id="mainNav">
+    </nav>
+  </div>                 </header>
+
+<main>
+  <div class="container">  <h2>Каталог Книг</h2>
+
+  <section id="searchFilters" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc;">
+    <h4>Пошук та Фільтрація</h4>
+    <div style="margin-bottom: 10px;">
+      <label for="searchInputTitle">Назва:</label>
+      <input type="text" id="searchInputTitle" placeholder="Частина назви...">
+    </div>
+    <div style="margin-bottom: 10px;">
+      <label for="searchInputAuthor">Автор:</label>
+      <input type="text" id="searchInputAuthor" placeholder="Частина імені автора...">
+    </div>
+    <div style="margin-bottom: 10px;">
+      <label for="searchInputGenre">Жанр:</label>
+      <input type="text" id="searchInputGenre" placeholder="Частина жанру...">
+    </div>
+    <div style="margin-bottom: 10px;">
+      <label for="searchInputMaterialType">Тип матеріалу:</label>
+      <input type="text" id="searchInputMaterialType" placeholder="Наприклад, Підручник...">
+    </div>
+    <button id="searchButton" type="button">Знайти</button>
+    <button id="resetSearchButton" type="button" style="margin-left: 10px;">Скинути фільтри</button>
+  </section>
+  <div id="bookListContainer">
+    <p>Завантаження книг...</p>
+  </div>
+
+  <div id="paginationControls" style="text-align: center; margin-top: 20px;">
+    <button id="prevPageButton" disabled>Попередня</button>
+    <span id="currentPageInfo" style="margin: 0 10px;">Сторінка 1 з 1</span>
+    <button id="nextPageButton" disabled>Наступна</button>
+  </div>
+
+  </div>                   </main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Моя Бібліотека Навчального Закладу</p>
+    <div class="footer-contact-info" style="margin-top: 10px;"> <p>Для зв'язку:</p>
+      <p>Email: <a href="mailto:mylibraryprojectdeeplomat@gmail.com">mylibraryprojectdeeplomat@gmail.com</a></p>
+      <p>Телефон: <a href="tel:+48727851558">727 851 558</a></p> </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/books.js"></script>
+</body>
+</html>

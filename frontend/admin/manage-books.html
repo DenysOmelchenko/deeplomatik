@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управління Книгами - Адмін Панель</title>
+    <link rel="stylesheet" href="../css/style.css"> <style>
+    #bookFormContainer { margin-bottom: 30px; padding: 20px; border: 1px solid #ddd; background-color: #f9f9f9; border-radius: 5px; }
+    #bookFormContainer div { margin-bottom: 10px; }
+    #bookFormContainer label { display: inline-block; width: 180px; vertical-align: top; }
+    #bookFormContainer input[type="text"],
+    #bookFormContainer input[type="number"],
+    #bookFormContainer textarea { width: calc(100% - 200px); max-width: 400px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    #bookFormContainer textarea { height: 80px; resize: vertical; }
+    .message-area { margin-bottom:15px; padding: 10px; border-radius: 4px; }
+    .success-message { background-color: #e6ffed; border: 1px solid #b7ebc5; color: #257942; }
+    .error-message { background-color: #ffe6e6; border: 1px solid #ffb3b3; color: #c00; }
+    #adminBookPagination button, #refreshBooksButton { padding: 8px 15px; margin: 5px; cursor: pointer; }
+</style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>Адмін-панель: Управління Книгами</h1>
+        <nav id="mainNav">
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div id="formBookMessage" class="message-area" style="display:none;"></div>
+
+    <section id="bookFormContainer">
+        <h2 id="bookFormTitle">Додати Нову Книгу</h2>
+        <form id="adminBookForm">
+            <input type="hidden" id="adminBookId" name="bookId">
+
+            <div>
+                <label for="adminBookTitle">Назва:</label>
+                <input type="text" id="adminBookTitle" name="title" required>
+            </div>
+            <div>
+                <label for="adminBookAuthor">Автор:</label>
+                <input type="text" id="adminBookAuthor" name="author" required>
+            </div>
+            <div>
+                <label for="adminBookGenre">Жанр:</label>
+                <input type="text" id="adminBookGenre" name="genre" required>
+            </div>
+            <div>
+                <label for="adminBookDescription">Опис:</label>
+                <textarea id="adminBookDescription" name="description"></textarea>
+            </div>
+            <div>
+                <label for="adminBookISBN">ISBN:</label>
+                <input type="text" id="adminBookISBN" name="isbn">
+            </div>
+            <div>
+                <label for="adminBookPublishedYear">Рік видання:</label>
+                <input type="number" id="adminBookPublishedYear" name="publishedYear" placeholder="YYYY">
+            </div>
+            <div>
+                <label for="adminBookPublisher">Видавництво:</label>
+                <input type="text" id="adminBookPublisher" name="publisher">
+            </div>
+            <div>
+                <label for="adminBookMaterialType">Тип матеріалу:</label>
+                <input type="text" id="adminBookMaterialType" name="materialType" placeholder="Підручник, Журнал...">
+            </div>
+            <div>
+                <label for="adminBookTotalCopies">Загальна к-сть екз.:</label>
+                <input type="number" id="adminBookTotalCopies" name="totalCopies" required min="0" value="1">
+            </div>
+            <button type="submit" id="adminSaveBookButton">Додати книгу</button>
+            <button type="button" id="adminCancelEditButton" style="display:none; margin-left:10px;">Скасувати редагування</button>
+        </form>
+    </section>
+
+    <hr style="margin: 30px 0;">
+
+    <section id="bookListSection">
+        <h2>Список Книг у Бібліотеці</h2>
+        <div>
+            <label for="adminShowDeletedBooks">Показати видалені:</label>
+            <input type="checkbox" id="adminShowDeletedBooks">
+            <button id="adminRefreshBooksButton" type="button" style="margin-left: 10px;">Оновити список</button>
+        </div>
+        <div id="adminBookListContainer" style="margin-top:15px;">
+            <p>Завантаження книг...</p>
+        </div>
+        <div id="adminBookPagination" style="text-align: center; margin-top: 20px;">
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Моя Бібліотека Навчального Закладу</p>
+    </div>
+</footer>
+
+<script src="../js/auth.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

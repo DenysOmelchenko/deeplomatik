@@ -1,0 +1,77 @@
+
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String      @id @default(cuid())
+  email     String      @unique
+  password  String
+  username  String      @unique
+  role      String      @default("STUDENT")
+  deletedAt DateTime?   // Поле для "м'якого" видалення
+  requests  BookRequest[]
+  borrows   Borrow[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model Book {
+  id            String   @id @default(cuid())
+  title         String
+  author        String
+  genre         String
+  description   String?
+  totalCopies   Int      @default(1)
+  availableCopies Int    @default(1)
+  deletedAt     DateTime? // Поле для "м'якого" видалення
+  isbn          String?  @unique
+  publishedYear Int?
+  publisher     String?
+
+  // --- НОВЕ ПОЛЕ: ТИП МАТЕРІАЛУ ---
+  materialType  String?  // Наприклад: "Підручник", "Журнал", "Монографія", "Методичка"
+  // -------------------------------
+
+  requests    BookRequest[]
+  borrows     Borrow[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([title])
+  @@index([author])
+  @@index([genre])
+  // Можна додати індекс для materialType, якщо за ним часто будуть шукати
+  // @@index([materialType])
+}
+
+model BookRequest {
+  id          String   @id @default(cuid())
+  userId      String
+  bookId      String
+  status      String   @default("PENDING")
+  requestDate DateTime @default(now())
+  approvedBy  String?
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book        Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  @@unique([userId, bookId, status])
+}
+
+model Borrow {
+  id         String   @id @default(cuid())
+  userId     String
+  bookId     String
+  borrowDate DateTime @default(now())
+  dueDate    DateTime
+  returnDate DateTime?
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book       Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  @@unique([userId, bookId, returnDate])
+}

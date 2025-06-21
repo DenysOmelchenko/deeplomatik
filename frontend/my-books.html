@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мої книги та запити - Бібліотека</title>
+    <link rel="stylesheet" href="css/style.css"> </head>
+<body>
+
+<header>
+    <div class="container"> <h1>Бібліотека Навчального Закладу</h1> <nav id="mainNav">
+    </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container"> <h2>Мій Кабінет: Книги та Запити</h2> <section id="userInfo">
+        <h3>Інформація про користувача</h3> <div id="userInfoContainer">
+        <p>Завантаження даних...</p>
+    </div>
+    </section>
+
+        <hr style="margin: 20px 0;"> <section id="currentBorrows">
+            <h3>Мої позичені книги (на руках)</h3> <div id="borrowedBooksContainer">
+            <p>Завантаження списку позичених книг...</p>
+        </div>
+        </section>
+
+        <hr style="margin: 20px 0;">
+
+        <section id="myRequests">
+            <h3>Мої запити на книги</h3> <div id="bookRequestsContainer">
+            <p>Завантаження списку запитів...</p>
+        </div>
+        </section>
+
+        <hr style="margin: 20px 0;">
+
+        <section id="borrowHistory">
+            <h3>Моя історія позичань</h3> <div id="borrowHistoryContainer">
+            <p>Завантаження історії...</p>
+        </div>
+            <div id="historyPaginationControls" style="text-align: center; margin-top: 15px;">
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Моя Бібліотека Навчального Закладу</p>
+        <div class="footer-contact-info" style="margin-top: 10px;"> <p>Для зв'язку:</p>
+            <p>Email: <a href="mailto:mylibraryprojectdeeplomat@gmail.com">mylibraryprojectdeeplomat@gmail.com</a></p>
+            <p>Телефон: <a href="tel:+48727851558">727 851 558</a></p> </div>
+    </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/profile.js"></script> </body>
+</html>
