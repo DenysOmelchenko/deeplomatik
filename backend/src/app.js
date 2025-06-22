@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
-    'https://your-site-name.netlify.app',
+    'https://magical-frangipane-981f1e.netlify.app/',
     'http://localhost:63342'
 ];
 

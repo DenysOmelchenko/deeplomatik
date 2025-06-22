@@ -1,7 +1,7 @@
 // frontend/js/auth.js
 
 
-window.API_BASE_URL = 'http://localhost:3000/api';
+window.API_BASE_URL = 'deeplomatik-production.up.railway.app';
 window.LIBRARIAN_ROLE = 'LIBRARIAN';
 window.STUDENT_ROLE = 'STUDENT';
 window.TEACHER_ROLE = 'TEACHER';
